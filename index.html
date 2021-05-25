@@ -11,30 +11,21 @@
 
 </head>
 
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <div class="container px-4">
-        <a class="navbar-brand" href="#page-top">Project 2</a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#visual1">BarGraph</a></li>
-                <li class="nav-item"><a class="nav-link" href="#visual2">Visual2</a></li>
-                <li class="nav-item"><a class="nav-link" href="#visual3">Bubble Chart</a></li>
-            </ul>
-        </div>
+   <!-- Navigation -->
+  <header class="bg-primary bg-gradient text-white">
+    <div class="container px-4 text-center">
+        <h1 class="fw-bolder">Understanding Human Rights Through Data</h1>
+        <p class="lead">Interact with the Charts Below </p>
     </div>
-</nav>
+  </header>
+
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1> " Put Topic Header Here "</h1>
-        <p>" Use the interactive charts below to explore the dataset" </p>
-      </div>
-    </div>
     <div class="row">
       <div class="col-md-2">
         <div class="well">
-          <h5>Select a Country</h5>
+          <h5>Countries</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
         <div class="panel panel-primary">
@@ -46,28 +37,52 @@
       </div>
 
     </div>
+  <section class="" id="visual1">
     <div class="row1">
-        <div id="visual1"></div>
-        <h1>Bar Graph: Single Country</h1>
+        <h3 class="text-uppercase ml-5 mt-4">Visual One</h3>
+        <div class="row m-0">
+          <iframe class="col-lg-8 mr-auto" height="300" frameborder="0" scrolling="yes"></iframe>
+          <div class="col-lg-4 ml-auto">
+            <br>
+            <p class="lead">Here we can have a short description of what this chart is telling us.</p>
+          </div>
+        </div>
+      </div>
+  </section>
             
+  <section id="visual2">
+    <div class="row1">
+      <h3 class="text-uppercase ml-5 mt-4">Visual Two</h3>
+      <div class="row m-0">
+        <iframe class="col-lg-8 mr-auto" height="300" frameborder="0" scrolling="yes"></iframe>
+        <div class="col-lg-4 ml-auto">
+          <br>
+          <p class="lead">Here we can have a short description of what this chart is telling us.</p>
+        </div>
+      </div>
     </div>
-    <div class="visual2">
-        <div id="line"></div>
-        <h1>Visual 2: Single Country</h1>
+  </section>
+
+<section id="visual3">
+  <div class="row1">
+      <h3 class="text-uppercase ml-5 mt-4">Visual Three</h3>
+      <div class="row m-0">
+        <iframe class="col-lg-8 mr-auto" height="300" frameborder="0" scrolling="yes"></iframe>
+        <div class="col-lg-4 ml-auto">
+          <br>
+          <p class="lead">Here we can have a short description of what this chart is telling us.</p>
+        </div>
+      </div>
     </div>
-    <div class="row3">
-        <div id="visual3"></div>
-        <h1>Visual 3: All Countries, Bubble</h1>
-    </div>
-    </div>
-  </div>
+</section>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="style.css"></script>
 
   <footer class="container-fluid text-center">
-    <p> Footer Here</p>
+    <p> <a class="gx-4 justify-content-center href" href="#header"> Back to Top </a> </p>
+
   </footer>
 </body>
 
