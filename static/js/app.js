@@ -62,15 +62,32 @@ function buildMetadata(country){
 
 // ToDo Wite code for charts here:
 
-// function buildCharts(sample) {
-//   // Use d3.json to get data
-//   d3.json(url).then(function(data) {
-//       var metadata = data.Country;
-//       var filterdata = metadata.filter(sampleobject => sampleobject.Year==sample);
-//       var result = filterdata[0];
-//       var OTU_ids = result.otu_ids;
-//       var OTU_labels = result.otu_labels;
-//       var samplevalue = result.sample_values;
-//       console.log(metadata)
-//   })
-// }
+function buildCharts(country) {
+  // Use d3.json to get data
+  d3.json(url).then(function(data) {
+      var metadata = data.Country;
+      var filterdata = metadata.filter(sampleobject => sampleobject.id==country);
+      var result = filterdata[0];
+  // Y axis == NEED TO SET SCALE, 0-100
+      var Yscale = result.;
+  // X Axis == NEED TO INCLUDE MULTIPLE VARIABLES, ALL RIGHTS
+      var rightslabel = result.;
+      var rightsvalue = result.;
+
+
+      // Barchart / horizontal 
+      var barchart = [{
+          y: Yscale.slice(0,10).map(Yscale=>`Rating: ${Yscale}`).reverse(),
+          x: rightslabel.slice(0,10).reverse(),
+          text: rightsvalue.slice(0,10).reverse(),
+          type: "bar",
+          orientation:"v"
+        }];
+
+      var barlayout = {
+      title : "Rights Disparity within Each Country"
+      }
+
+      Plotly.newPlot('bar',barchart,barlayout);
+  });
+};
