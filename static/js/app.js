@@ -18,26 +18,28 @@ var url = 'http://127.0.0.1:5000/data'
 //   })
 // });
 
+var url = 'http://127.0.0.1:5000/data'
+
+
 function dropdown(){
-  var url = 'http://127.0.0.1:5000/data'
   var ID = d3.select("#selDataset");
   d3.json(url).then(function(data){
+
+      console.log(data);
       var countries = data.Country;
       countries.forEach((country)=>{
           ID.append("option")
           .text(country.name)
           // .property("value",country.name)
       })
-      var country1 = countries[0];
-      buildMetadata(country1);
-      // buildCharts(country1);
   })
 }
 dropdown()
 
 function optionChanged(newCountry){
   buildMetadata(newCountry)
-  // buildCharts(newCountry)
+  //buildCharts(newCountry)
+  plotCharts(newCountry);
   // gguage_plot(newCountry)
 }
 
@@ -61,33 +63,78 @@ function buildMetadata(country){
 }
 
 // ToDo Wite code for charts here:
-
-function buildCharts(country) {
-  // Use d3.json to get data
+function plotCharts(country){
+  var usedata = [];
   d3.json(url).then(function(data) {
-      var metadata = data.Country;
-      var filterdata = metadata.filter(sampleobject => sampleobject.id==country);
-      var result = filterdata[0];
-  // Y axis == NEED TO SET SCALE, 0-100
-      var Yscale = result.;
-  // X Axis == NEED TO INCLUDE MULTIPLE VARIABLES, ALL RIGHTS
-      var rightslabel = result.;
-      var rightsvalue = result.;
+    var countryInfo = data.Country
+    var filterdata = countryInfo.filter(sampleobject => sampleobject.name == country);
+    
+    x_variable_keys = ["RT_EducationScore","RT_FoodScore","RT_HealthScore", "RT_HousingScore","RT_WorkScore"];
+
+    // Loop through the countries and push keys to the chart
+    for(i=0; i < x_variable_keys.length; i++){
+      usedata.push({label: x_variable_keys[i], value: filterdata[0][x_variable_keys[i]] })
+    }
+
+    usedata["columns"] = x_variable_keys
+
+    console.log("Usedata", usedata, x_variable_keys.length);
+    plotBar(usedata);
+
+});
+
+}
+
+function plotBar(data){
+
+d3.select("#bar-chart-svg").html("");
+
+// Dimensions and Margins
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+//Append SVG
+var svg = d3.select("#bar-chart-svg")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+
+// make X axis then Append
+
+var x = d3.scaleBand()
+  .range([ 0, width ])
+  .domain(data.map(function(d) { return d.label; }))
+  .padding(0.2);
+
+svg.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x))
+  .selectAll("text")
+    .attr("transform", "translate(-10,0)rotate(-45)")
+    .style("text-anchor", "end");
+
+// same thing with Y axis
+
+var y = d3.scaleLinear()
+  .range([ height, 0])
+  .domain([0, 100])
+svg.append("g")
+  .call(d3.axisLeft(y));
 
 
-      // Barchart / horizontal 
-      var barchart = [{
-          y: Yscale.slice(0,10).map(Yscale=>`Rating: ${Yscale}`).reverse(),
-          x: rightslabel.slice(0,10).reverse(),
-          text: rightsvalue.slice(0,10).reverse(),
-          type: "bar",
-          orientation:"v"
-        }];
+// Append bars to the chart
+svg.selectAll("myBar")
+  .data(data)
+  .enter()
+  .append("rect")
+    .attr("x", function(d) { return x(d.label); })
+    .attr("y", function(d) { return y(d.value); })
+    .attr("width", x.bandwidth())
+    .attr("height", function(d) { return height - y(d.value); })
+    .attr("fill", "blue")
 
-      var barlayout = {
-      title : "Rights Disparity within Each Country"
-      }
-
-      Plotly.newPlot('bar',barchart,barlayout);
-  });
-};
+}
