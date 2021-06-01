@@ -1,8 +1,21 @@
 .jumbotron {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 !important;
+}
+
+.bg-image {
     background-image: url(../static/img/background_images3.png);
     background-size: auto;
     background-repeat: no-repeat;
-    height: 100%;
+    height: 400px;
+    width: 100%;
+    max-width: 550px;
+}
+
+.human {
+    width: 100%;
 }
 
 .jumbotron h1 {
@@ -12,4 +25,46 @@
 .jumbotron p {
     opacity: 0.9;
     font-weight: bold;
+}
+
+.well, .well select, .panel-primary {
+    max-width: 200px;
+    width: 100%;
+}
+
+.right {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 0 10px;
+    box-shadow: 5px 10px rgb(178, 103, 32);
+}
+
+.left {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 0 10px;
+    box-shadow: 5px 10px lightseagreen;
+}
+
+.last {
+    border: 1px solid rgb(0, 0, 0);
+    margin: 0 10px;
+    box-shadow: 5px 10px rgb(32, 107, 178);
+}
+
+.panel-body p {
+    font-size: 15px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+.last {
+    margin: 30px 0;
+}
+
+.mid {
+    display: flex;
+}
+
+.main-svg {
+    background-color: inherit !important;
 }

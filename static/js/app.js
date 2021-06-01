@@ -74,7 +74,7 @@ function buildCharts(sample) {
       }];
 
       var barlayout = {
-        title: "Top RIghts Scores"
+        title: "Top Rights Scores"
       }
 
       Plotly.newPlot('bar', barchart, barlayout)
