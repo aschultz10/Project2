@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700");
+ body {
+	
+}
+ #my-section {
+	 position: relative;
+}
+ #wrap-cta {
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(0, -50%);
+	 opacity: 0;
+}
+ #wrap-cta.active {
+	 z-index: 2;
+	 transform: translate(-50%, -50%);
+	 transition: transform 0.6s, opacity 0.6s;
+	 opacity: 1;
+}
+ #wrap-cta #cta {
+	 padding: 1rem 2rem;
+	 text-transform: uppercase;
+	 color: #f2f2f2;
+	 background: transparent;
+	 border: 2px solid;
+	 border-radius: 5px;
+	 cursor: pointer;
+	 outline: none;
+	 -webkit-tap-highlight-color: transparent;
+	 transition: background 0.4s;
+}
+ #wrap-cta #cta:hover {
+	 background: rgba(242, 242, 242, .1);
+}
+ #boxsvg {
+	 display: block;
+	 width: 100%;
+	 height: 100vh;
+}
+ #boxsvg .polymorph {
+	 fill: #337ab7;
+}
+ .container-2 {
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+	 text-align: center;
+}
+ .container-2 #content {
+	 transform: translateY(-50px);
+	 opacity: 0;
+	 color: #b66c8d;
+	 transition: transform 0.6s 0.2s, opacity 0.6s 0.2s;
+}
+ .container-2 #content #close {
+	 display: inline-block;
+	 margin-top: 2rem;
+	 padding: 0.5rem 1rem;
+	 text-transform: uppercase;
+	 font-size: 0.9em;
+	 color: #b66c8d;
+	 background: transparent;
+	 border: 2px solid;
+	 border-radius: 5px;
+	 cursor: pointer;
+	 outline: none;
+	 -webkit-tap-highlight-color: transparent;
+	 transition: background 0.4s;
+}
+ .container-2 #content #close:hover {
+	 background: rgba(182, 108, 141, .3);
+}
+ .container-2 #content.active {
+	 z-index: 4;
+	 transform: translateY(0);
+	 opacity: 1;
+}
+
+
+/*Text letter animatin*/
+
+.ml11 {
+  font-weight: 700;
+  font-size: 3.5em;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 { 
+  top: 0; 
+  left: 0;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+ 
