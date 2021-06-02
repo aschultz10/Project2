@@ -66,64 +66,37 @@ Database
  
 JavaScript Libraries
 - D3
-- Leaflet
-- Popper
+- anime.js
+- jQuery
+
+Deploy to web
+- Heroku
 
 ## Process
 
-RICHARD AND ALEX FILL IN INFO HERE
+Our dataset was a csv file from [rightstracker.org](https://rightstracker.org/en) that included data for 197 countries. 
+Our process was as follows:
+- Create mock-up of dashboard 
+- Extract data from csv into Jupyter Notebook using Python
+- Clean data using Pandas
+- Import data into MongoDB
+- Create HTML framework
+- Create JavaScript files including using D3
+- Use Plotly to create bar chart, gauge chart, and bubble chart
+- Add anime.js and Jquery as additional libraries
+- Create CSS file
+- Deploy to web using Heroku
 
-ADD SCREENSHOTS OF 1-2 VISUALIZATIONS
+![dashboard](https://user-images.githubusercontent.com/75215001/120497706-a40bb300-c38c-11eb-84b5-ac344b97a81a.png)
+
 
 ## Conclusion
 
-ADD  CONCLUSIONS BASED ON VISUALIZATIONS
+Users can use the dropdown menu to choose a country and see the scores for 5 economic and social rights compared to the country's GDP as displayed on the bar chart.
+They can also view the total quality of life score for that country as shown on the gauge chart and the relationship of quality of life and GDP as shown on the bubble chart.
+By interacting with the charts, users can understand a country's performance and see whether a country is doing "good" (scores of 95% or higher), "fair" (85-94.9%),
+"bad" (75-84.9%) or "very bad" (below 75%).
 
 For future projects, we would like to measure these rights against other indicators such as a country's military spending or its migration statistics (data is available at hungerreport.org).
 
 
-
-
-## Proposal
-  Objective & Strategy:
-  - Use human rights parameters to understand country performance
-  - Compare Country(s) to Global Standards
-  - Using Three Measurements of Human Rights
- 
-     - Right to Health  
-          - Children Surviving to Age 5
-          - All Adults Age 15 Surviving to Age 60
-          - Modern Contraceptive Use Rate
-     - Right to Housing
-          - People With at Least Basic Sanitation
-          - People With Water on Premises
-          - People in Bottom Quintile With Affordable Housing
-     - Right to Work
-          - People not absolutely poor (>3.20 2011 PPP$ per day)
-          - People not relatively poor (>50% median income)
-          - Unemployed not long-term (>12 months) unemployed
-
-Sources & Data
-- Human Rights Measurement Initiative (HRMI)
-- GapMinder
-
-Front End Technologies
-- Java
-- CSS
-- HTML
-    
-Back End Technologies
-- Python
-- Flask
-  
-Databases
-- MongoDB
- 
-Java Libraries
-- D3
-- Leaflet
-- TBD
-
-Visualization Ideas:
-- We are thinking of taking a dashboard approach, with multiple visualizations on one page
-- Combination of interactive charts and graphs
